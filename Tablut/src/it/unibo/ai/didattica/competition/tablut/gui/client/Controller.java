@@ -53,10 +53,10 @@ public class Controller extends TablutClient {
 	private final static double BORDER_WIDTH = 1.0;
 	private final static double BOARD_SIZE = BORDER_WIDTH * 2 + CELL_SIZE * CELL_COUNT;
 	
-	private Image imageBoard;
-	private Image imageBlackPawn;
-	private Image imageWhitePawn;
-	private Image imageKingPawn;
+	private final Image imageBoard;
+	private final Image imageBlackPawn;
+	private final Image imageWhitePawn;
+	private final Image imageKingPawn;
 	
 	// Board
 	@FXML private AnchorPane anchorPaneBoard;
@@ -345,6 +345,9 @@ public class Controller extends TablutClient {
 			entry += " moved from " + a.getFrom().toUpperCase() + " to " + a.getTo().toUpperCase();
 			
 			listViewActionsHistory.getItems().add(entry);
+
+			// Scroll to last element
+			listViewActionsHistory.scrollTo(listViewActionsHistory.getItems().size() - 1);
 		});
 	}
 	
